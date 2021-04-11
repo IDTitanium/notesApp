@@ -32,5 +32,7 @@
     noteObject[id] = textElement.value;
     localStorage.setItem("notes", JSON.stringify(noteObject));
     alert("Note Saved");
+    // Adding next line to clear the text entry box after button press
+    textElement.value = "";
   }
 </script>
