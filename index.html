@@ -16,10 +16,21 @@
             <a href="index2.html">View Notes</a>
         </div>
     </div>
-    <div class="" second-page>
-        <ol id="" notes-list>
+    <script>
+        var textElement = document.getElementById("note")
 
-        </ol>
-    </div>
-    <script src="../notesApp/index.js"></script>
+        function saveNote() {
+            if (textElement.value == "") {
+                return alert('text is empty!')
+            }
+            const id = getNoteId()
+            let noteObject = getExistingNotes()
+            if (!noteObject) {
+                noteObject = {}
+            }
+            noteObject[id] = textElement.value
+            localStorage.setItem('notes', JSON.stringify(noteObject))
+            alert('Note Saved!')
+        }
+    </script>
 </body>
