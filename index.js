@@ -16,5 +16,3 @@ function getExistingNotes() {
   }
   return JSON.parse(notes);
 }
-
-getNoteId;
