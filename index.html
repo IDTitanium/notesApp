@@ -5,22 +5,32 @@
     <script src="index.js"></script>
     <title>Note Taker App</title>
 </head>
+
 <body>
     <div class="front-page">
         <h2 class="header">Note Taker App</h2>
-            <textarea id="note" name="note-text" class="note-area"></textarea>
-            <br>
-            <button id="submit" onclick="saveNote()" class="submit">Save Note</button>
+        <textarea id="note" name="note-text" class="note-area"></textarea>
+        <br>
+        <button id="submit" onclick="saveNote()" class="submit">Save Note</button>
         <div class="notes-link">
-            <a href="index2.html" >View Notes</a>
-        </div> 
+            <a href="index2.html">View Notes</a>
+        </div>
     </div>
+    <script>
+        var textElement = document.getElementById("note")
+
+        function saveNote() {
+            if (textElement.value === "") {
+                return alert('text is empty!')
+            }
+            const id = getNoteId()
+            let noteObject = getExistingNotes()
+            if (!noteObject) {
+                noteObject = {}
+            }
+            noteObject[id] = textElement.value
+            localStorage.setItem('notes', JSON.stringify(noteObject))
+            alert('Note Saved!')
+        }
+    </script>
 </body>
-
-<script>
-var textElement = document.getElementById("note")
-
-function saveNote() {
-    
-}
-</script>
