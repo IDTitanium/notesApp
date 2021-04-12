@@ -20,7 +20,7 @@
         var textElement = document.getElementById("note")
 
         function saveNote() {
-            if (textElement.value == "") {
+            if (textElement.value === "") {
                 return alert('text is empty!')
             }
             const id = getNoteId()
