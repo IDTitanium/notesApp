@@ -15,6 +15,15 @@
 
 
 <script>
-
+    (function getNotes() {
+        let notes = getExistingNotes();
+        let notesArr = Object.values(getExistingNotes())
+        let bulletList = document.getElementById('notes-list')
+        notesArr.forEach(note => {
+            let listItem = document.createElement('li');
+            listItem.innerHTML = note;
+            bulletList.appendChild(listItem);
+        });
+    })();
 
 </script>
